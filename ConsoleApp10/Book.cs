@@ -28,6 +28,11 @@ namespace ConsoleApp10
 
                 }
 
+                else
+                {
+                    throw new ArgumentException("Title cannot be empty.");
+                }
+
 
             }
         }
@@ -40,11 +45,13 @@ namespace ConsoleApp10
             }
             private set
             {
-                if (!string.IsNullOrEmpty(value))
+                if (string.IsNullOrEmpty(value))
                 {
-                    author = value;
+                    throw new ArgumentException("Author cannot be empty.");
 
                 }
+
+                author = value;
 
 
             }
@@ -63,6 +70,13 @@ namespace ConsoleApp10
                 {
                     year = value;
                 }
+
+                else
+                {
+                    throw new ArgumentException("Year must be between 1450 and 2026.");
+
+                    
+                }
             }
         }
         public int Pages
@@ -76,6 +90,10 @@ namespace ConsoleApp10
                 if (value > 0)
                 {
                     pages = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Pages must be positive.");
                 }
 
             }
