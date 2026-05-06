@@ -23,6 +23,7 @@ namespace ConsoleApp10
           private  set
             {
                 if (!string.IsNullOrEmpty(value))
+                if (!string.IsNullOrWhiteSpace(value))
                 {
                     title = value;
 
