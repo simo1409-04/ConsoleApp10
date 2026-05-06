@@ -22,7 +22,7 @@ namespace ConsoleApp10
             }
           private  set
             {
-                if (!string.IsNullOrEmpty(value))
+     
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     title = value;
@@ -46,13 +46,13 @@ namespace ConsoleApp10
             }
             private set
             {
-                if (string.IsNullOrEmpty(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException("Author cannot be empty.");
 
                 }
 
-                author = value;
+                author = value.Trim();
 
 
             }
@@ -67,16 +67,14 @@ namespace ConsoleApp10
             private set
             {
 
-                if(value>=1450 && value <= 2026)
+                int maxYear = DateTime.Now.Year;
+                if (value >= 1450 && value <= maxYear)
                 {
                     year = value;
                 }
-
                 else
                 {
-                    throw new ArgumentException("Year must be between 1450 and 2026.");
-
-                    
+                    throw new ArgumentOutOfRangeException(nameof(value), $"Year must be between 1450 and {maxYear}.");
                 }
             }
         }
@@ -110,7 +108,7 @@ namespace ConsoleApp10
         }
 
 
-        public bool isLongBook()
+        public bool IsLongBook()
         {
             return Pages >= 500;
 
@@ -119,7 +117,7 @@ namespace ConsoleApp10
 
         public override string ToString()
         {
-            return $"The {this.Title} by {this.Author}, {this.Year}, {this.Pages} pages";
+            return $"{this.Title} by {this.Author}, {this.Year}, {this.Pages} pages";
         }
 
     }

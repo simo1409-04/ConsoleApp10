@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace ConsoleApp10
 {
@@ -83,9 +84,9 @@ namespace ConsoleApp10
         public List<IBook> GetBooksByAuthor(string author)
         {
 
-            List<IBook> ChozenBooks = books.Where(x => x.Author == author).ToList();
+            List<IBook> chosenBooks = books.Where(x => x.Author == author).ToList();
 
-            return ChozenBooks;
+            return chosenBooks;
 
 
         }
@@ -93,9 +94,9 @@ namespace ConsoleApp10
         public List<IBook> GetLongBooks()
         {
 
-            List<IBook> ChozenBooks = books.Where(x => x.isLongBook()==true).ToList();
+            List<IBook> chosenBooks = books.Where(x => x.IsLongBook()).ToList();
 
-            return ChozenBooks;
+            return chosenBooks;
 
 
         }
@@ -118,10 +119,9 @@ namespace ConsoleApp10
                 return 0;
             }
 
-            int AvarageNumberCount = (int)books.Average(x=>x.Pages);
+            int averageNumberCount = (int)books.Average(x => x.Pages);
 
-
-            return AvarageNumberCount;
+            return averageNumberCount;
 
         }
 

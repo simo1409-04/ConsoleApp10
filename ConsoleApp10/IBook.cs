@@ -12,7 +12,7 @@ namespace ConsoleApp10
          int Pages { get; }
 
 
-        bool isLongBook();
+        bool IsLongBook();
 
       
 
